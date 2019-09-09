@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   collapsed = true;
-  title = 'ng8-course-project';
+
+  loadedFeature = 'recipe';
+  
+  onNavigate(feature: string){
+    this.loadedFeature = feature;
+  }
 }
