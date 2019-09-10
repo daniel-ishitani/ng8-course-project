@@ -9,26 +9,31 @@ export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
-    new Recipe(
-      'test',
-      'test',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGeXQM1IW8u5DGFfJs6dGg7zJKTt52WmVj_Uub2aYpoYJDDXUC',
-      [
-        new Ingredient('Meat', 1),
-        new Ingredient('Fries', 20)
-      ]
-     ),
-    new Recipe(
-      'anotherTest',
-      'test',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGeXQM1IW8u5DGFfJs6dGg7zJKTt52WmVj_Uub2aYpoYJDDXUC',
-      [
-        new Ingredient('wine', 1)
-      ]
-    )
+    // new Recipe(
+    //   'test',
+    //   'test',
+    //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGeXQM1IW8u5DGFfJs6dGg7zJKTt52WmVj_Uub2aYpoYJDDXUC',
+    //   [
+    //     new Ingredient('Meat', 1),
+    //     new Ingredient('Fries', 20)
+    //   ]
+    //   ),
+    // new Recipe(
+    //   'anotherTest',
+    //   'test',
+    //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGeXQM1IW8u5DGFfJs6dGg7zJKTt52WmVj_Uub2aYpoYJDDXUC',
+    //   [
+    //     new Ingredient('wine', 1)
+    //   ]
+    // )
   ];
 
   constructor(private slService: ShoppingListService) {}
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.emitChangedRecipes();
+  }
 
   getRecipes() {
     return this.recipes.slice();
